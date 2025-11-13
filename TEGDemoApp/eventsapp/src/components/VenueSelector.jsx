@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import EventsCalendar from "./EventsCalendar";
 import API_BASE_URL from "../config";
 
 console.log(API_BASE_URL);
-//const API_BASE_URL = ${API_BASE_URL}; // <-- change to match your API
-//console.log(${API_BASE_URL});
 
 function VenueSelector() {
   const [venues, setVenues] = useState([]);
@@ -20,7 +18,6 @@ function VenueSelector() {
           throw new Error("Failed to fetch venues");
         }
         const data = await response.json();
-        console.log(data);
         setVenues(data);
       } catch (err) {
         console.error(err);

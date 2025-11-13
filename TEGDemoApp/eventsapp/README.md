@@ -1,4 +1,3 @@
-# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -6,65 +5,30 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Runs the app in the development mode.\
+1. Open (http://localhost:3000) to view the app in your browser.
 
-### `npm run eject`
+2. When the page loads, an API call is made to retrieve all venues and their associated Events. The Venue names are populated in the dropdown. 
+By default, no venue is selected when the app starts.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Select a venue from the list to see the events for that venue (if any) in the Events Calendar component below. The Events Calendar section has a date picker
+which allows you to filter by month and year and only events which exist in that month/year will be shown.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. To run the app in development mode, the API Base Url is configured in the "env.development" which must match the URL configured on development server (Kestrel).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. The app will call the API once only when it loads to get all venues and events. All filtering is done on the frontend.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This repo contains all of the frontend code for the Events listed by Venue.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. src/index.jsx - creates the main root of the app in the DOM to render the App component.
+2. src/App.jsx - main App component which renders the "VenueSelector" to display the Venues dropdown list.
+3. src/components/VenueSelector.jsx - contains logic to retrieve all venues and their associated events. On change, the venue id and event list is passed to the child "EventsCalendar" component.
+4. src/components/EventsCalendar.jsx - contains logic to filter all events (passed by parent VenueSelector) by month and year using the datepicker component. Any matching events by Month and year are then displayed in the list below.
+5. src/.env.* - Environment file to configure API Base Url by environment (Dev or Prod).
