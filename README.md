@@ -1,6 +1,7 @@
 The Events listing Web app is a single one App solution (React + minimal API) deployed to an Azure App Service running on .Net 8 platform.
   
   Front End (SPA) Endpoint - https://tegdemoapp-d9cha4bacta6azgd.australiaeast-01.azurewebsites.net/
+  
   Back End (Minimal API) endpoint - https://tegdemoapp-d9cha4bacta6azgd.australiaeast-01.azurewebsites.net/api/Venues
 
 TEGDemo/TEGDemoApp
